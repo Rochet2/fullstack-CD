@@ -1,5 +1,8 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const mongoose = require('mongoose')
-const url = 'mongodb://dbuser:secret@ds121088.mlab.com:21088/fullstackmongo'
+const url = process.env.MONGODB_URI
 
 if (process.argv.length === 4) {
   const [, , name, number] = process.argv
