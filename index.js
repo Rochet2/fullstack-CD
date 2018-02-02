@@ -34,10 +34,6 @@ let persons = [
     },
 ]
 
-app.get('/', (req, res) => {
-    res.send('<h1>Hello World!!</h1>')
-})
-
 app.get('/info', (req, res) => {
     res.send(`<p>Puhelinluettelossa ${persons.length} henkilön tiedot</p>
     <p>${new Date()}</p>`)
