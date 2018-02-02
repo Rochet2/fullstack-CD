@@ -1,1 +1,2 @@
-web: npm run build; node index.js
+web: ./frontend/build.sh; node index.js
+
