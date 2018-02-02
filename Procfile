@@ -1,2 +1,2 @@
-web: ./frontend/build.sh && node index.js
+web: node index.js
 
