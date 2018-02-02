@@ -28,6 +28,11 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello World!!</h1>')
 })
 
+app.get('/info', (req, res) => {
+    res.send(`<p>Puhelinluettelossa ${persons.length} henkilön tiedot</p>
+    <p>${new Date()}</p>`)
+})
+
 app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
@@ -38,13 +43,14 @@ app.get('/api/persons/:id', (req, res) => {
     if (person) {
         res.json(person)
     } else {
-        response.status(404).end()
+        res.status(404).end()
     }
 })
 
-app.get('/info', (req, res) => {
-    res.send(`<p>Puhelinluettelossa ${persons.length} henkilön tiedot</p>
-    <p>${new Date()}</p>`)
+app.delete('/api/persons/:id', (req, res) => {
+    const id = Number(req.params.id)
+    persons = persons.filter(p => p.id !== id)
+    res.status(204).end()
 })
 
 const PORT = 3001
